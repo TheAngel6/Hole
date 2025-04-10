@@ -1,5 +1,5 @@
 const mouseGlow = document.getElementById('mouse-glow');
-const quoteText = document.querySelector('.quote-text'); 
+const poemText = document.querySelector('.poem-text'); 
 
 document.addEventListener('mousemove', (event) => {
     window.requestAnimationFrame(() => {
@@ -7,14 +7,14 @@ document.addEventListener('mousemove', (event) => {
         mouseGlow.style.top = `${event.clientY}px`;
     });
 
-    if (quoteText) {
-        const rect = quoteText.getBoundingClientRect();
+    if (poemText) {
+        const rect = poemText.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
 
         window.requestAnimationFrame(() => {
-            quoteText.style.setProperty('--x', `${x}px`);
-            quoteText.style.setProperty('--y', `${y}px`);
+            poemText.style.setProperty('--x', `${x}px`);
+            poemText.style.setProperty('--y', `${y}px`);
         });
     }
 });
@@ -26,6 +26,6 @@ document.addEventListener('mouseenter', () => {
     mouseGlow.style.opacity = '1';
 });
 
-if (!quoteText) {
-    console.error("Quote text element not found!");
+if (!poemText) {
+    console.error("Poem text element not found!");
 }
